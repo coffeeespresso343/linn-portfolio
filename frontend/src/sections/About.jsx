@@ -73,7 +73,7 @@ const About = () => {
           </FadeIn>
 
           {/* Profile card + ticker */}
-          <FadeIn delay={120}>
+          <FadeIn delay={120} className="max-w-120">
             <div className="card card-hover p-6 flex gap-4 items-center mb-4">
               <div
                 className="w-17 h-17 rounded-full overflow-hidden shrink-0 

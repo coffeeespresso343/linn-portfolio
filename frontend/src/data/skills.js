@@ -1,7 +1,18 @@
+import {
+  ArrowBigUpDash,
+  Clock,
+  Code2,
+  Leaf,
+  Settings,
+  Settings2,
+  Timer,
+  ToolCase,
+} from "lucide-react";
+
 export const skillCategories = [
   {
     id: "backend",
-    icon: "⚙️",
+    Icon: Settings,
     label: "Backend",
     skills: [
       { name: "Java", pct: 85 },
@@ -12,7 +23,7 @@ export const skillCategories = [
   },
   {
     id: "frontend",
-    icon: "🎨",
+    Icon: Code2,
     label: "Frontend",
     skills: [
       { name: "HTML / CSS", pct: 90 },
@@ -23,7 +34,7 @@ export const skillCategories = [
   },
   {
     id: "devops",
-    icon: "🛠️",
+    Icon: ToolCase,
     label: "Tools & DevOps",
     skills: [
       { name: "Git & GitHub", pct: 75 },
@@ -36,28 +47,28 @@ export const skillCategories = [
 
 export const learningObjectives = [
   {
-    icon: "🔄",
+    Icon: ArrowBigUpDash,
     label: "Microservices Architecture",
     sub: "Spring Cloud, API gateway",
     pct: 40,
     done: false,
   },
   {
-    icon: "⏳",
+    Icon: Timer,
     label: "Kubernetes & Container Ops",
     sub: "Deploy containerized apps",
     pct: 20,
     done: false,
   },
   {
-    icon: "⏳",
+    Icon: Settings2,
     label: "System Design",
     sub: "Distributed architectures",
     pct: 30,
     done: false,
   },
   {
-    icon: "✅",
+    Icon: Leaf,
     label: "Spring Boot REST APIs",
     sub: "CRUD, JWT, Hibernate ORM",
     pct: 100,
