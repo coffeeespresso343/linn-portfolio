@@ -100,7 +100,7 @@
     color: #eaeaf4;
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    /* cursor: none; */
   }
 
   @media (max-width: 768px) {
