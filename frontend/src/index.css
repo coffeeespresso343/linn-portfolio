@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+/* =========================
+   Tailwind v4 Theme
+========================= */
+
+@theme {
+  --color-bg: #080810;
+  --color-bg2: #0d0d1a;
+  --color-surface: #10101e;
+  --color-surface2: #16162a;
+  --color-accent: #00e5ff;
+  --color-purple: #7c30ff;
+  --color-muted: #606080;
+  --color-dim: #2c2e48;
+  --color-green: #00d084;
+  --color-yellow: #ffb800;
+
+  --font-display: "Syne", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-body: "DM Sans", sans-serif;
+
+  --animate-blink: blink 1.6s infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-ticker: ticker 24s linear infinite;
+  --animate-fade-up: fadeUp 0.8s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .12;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   Base
+========================= */
+
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #7c30ff #080810;
+  }
+
+  html::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: #7c30ff;
+    border-radius: 999px;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: #eaeaf4;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
+  }
+}
+
+
+/* =========================
+   Reusable Components
+========================= */
+
+@layer components {
+
+  .section-label {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: .75rem;
+  }
+
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    margin-bottom: 3.5rem;
+  }
+
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: var(--font-mono);
+    font-size: .875rem;
+    font-weight: 700;
+    padding: .75rem 1.75rem;
+    border-radius: .5rem;
+    letter-spacing: .025em;
+    transition: all .2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 32px rgba(0, 229, 255, .3);
+  }
+
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, .1);
+    color: white;
+    font-family: var(--font-mono);
+    font-size: .875rem;
+    padding: .75rem 1.75rem;
+    border-radius: .5rem;
+    transition: all .2s ease;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 1rem;
+    transition: all .3s ease;
+  }
+
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 229, 255, .2);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, .4),
+      0 0 44px rgba(0, 229, 255, .08);
+  }
+
+
+  .tag-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-muted);
+    padding: .125rem .5rem;
+    background: var(--color-surface2);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: .25rem;
+  }
+}
+
+
+/* =========================
+   Custom Utilities
+========================= */
+
+@layer utilities {
+
+  .noise-overlay {
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  }
+
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, .03) 1px,
+        transparent 1px),
+      linear-gradient(90deg,
+        rgba(0, 229, 255, .03) 1px,
+        transparent 1px);
+
+    background-size: 54px 54px;
+
+    mask-image:
+      radial-gradient(ellipse 80% 80% at 50% 50%,
+        black 20%,
+        transparent 72%);
+  }
+
+
+  .text-gradient {
+    background: linear-gradient(135deg,
+        #7c30ff,
+        #00e5ff);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+
+/* =========================
+   Custom Cursor
+========================= */
+
+#cursor {
+  position: fixed;
+  width: 11px;
+  height: 11px;
+  background: #00e5ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition:
+    width .18s,
+    height .18s,
+    background .18s;
+  mix-blend-mode: screen;
+}
+
+
+#cursor-trail {
+  position: fixed;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 229, 255, .35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    left .12s ease-out,
+    top .12s ease-out,
+    width .18s,
+    height .18s;
+}
+
+
+/* =========================
+   Other Effects
+========================= */
+
+.skill-fill {
+  transition:
+    width 1.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, .07);
+}
