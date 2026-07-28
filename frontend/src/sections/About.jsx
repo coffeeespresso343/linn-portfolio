@@ -29,7 +29,7 @@ const INFO = [
   {
     id: 2,
     Icon: School,
-    label: "RMIT - Royal Myanmar International of Technology",
+    label: "Royal Myanmar International of Technology",
   },
   { id: 3, Icon: Clock3, label: "Class of 2025" },
 ];
@@ -74,10 +74,10 @@ const About = () => {
 
           {/* Profile card + ticker */}
           <FadeIn delay={120}>
-            <div className="card card-hover p-6 flex gap-4 items-center mb-4">
+            <div className="card card-hover p-4 flex gap-4 items-center mb-4">
               <div
                 className="w-17 h-17 rounded-full overflow-hidden shrink-0 
-              border-2 border-accent/50 bg-surface2"
+              border-2 border-white bg-surface2"
               >
                 <ProfileAvatar size={68} />
               </div>
@@ -92,7 +92,7 @@ const About = () => {
                       key={id}
                       className="flex items-center gap-2 text-[0.78rem] text-muted"
                     >
-                      <Icon size={16} />
+                      <Icon size={14} />
                       <span>{label}</span>
                     </div>
                   ))}

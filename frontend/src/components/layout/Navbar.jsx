@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, User, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -36,11 +37,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
@@ -48,74 +45,125 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav
-      className={`
+    <>
+      <nav
+        className={`
       fixed top-0 left-0 right-0 z-900 flex items-center justify-between
       px-10 py-4 transition-all duration-300
-      ${isScrolled ? "bg-bg/97 border-b border-white/[0.07] backdrop-blur-2xl" : "bg-bg/75 backdrop-blur-2xl"}
+      ${isScrolled ? "bg-bg/10 border-b border-white/[0.07] backdrop-blur-2xl" : "bg-bg/75 backdrop-blur-2xl"}
     `}
-    >
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-accent/30">
-          <User />
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-accent/30">
+            <User size={28} />
+          </div>
+          <span className="font-mono font-bold text-lg tracking-widest">
+            <span className="text-accent">[</span>LK
+            <span className="text-accent">]</span>
+          </span>
         </div>
-        <span className="font-mono font-bold text-lg tracking-widest">
-          <span className="text-accent">[</span>LK
-          <span className="text-accent">]</span>
-        </span>
-      </div>
 
-      {/* Links */}
-      <ul className="hidden md:flex items-center gap-7">
-        {NAV_LINKS.map((l) => (
-          <li key={l.href}>
+        {/* Links */}
+        <ul className="hidden md:flex items-center gap-7">
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className={`font-mono text-[0.75rem] tracking-wide transition-colors duration-200 ${
+                  isActive === l.href.slice(1)
+                    ? "text-accent"
+                    : "text-muted hover:text-accent"
+                }`}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+          <li>
             <a
-              href={l.href}
-              className={`font-mono text-[0.75rem] tracking-wide transition-colors duration-200 ${
-                isActive === l.href.slice(1)
-                  ? "text-accent"
-                  : "text-muted hover:text-accent"
-              }`}
+              href="#contact"
+              className="font-mono text-[0.75rem] text-accent border border-accent/30 px-4 py-1.5 rounded-md transition-all duration-200 hover:bg-accent hover:text-bg"
             >
-              {l.label}
+              Contact
             </a>
           </li>
-        ))}
-        <li>
-          <a
-            href="#contact"
-            className="font-mono text-[0.75rem] text-accent border border-accent/30 px-4 py-1.5 rounded-md transition-all duration-200 hover:bg-accent hover:text-bg"
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
+        </ul>
 
-      {/* Hamburger */}
-      <button
-        aria-label="Menu"
-        className="md:hidden"
-        onClick={() => setIsMenuOpen((o) => !o)}
-      >
-        {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-      </button>
-
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-60 backdrop-blur-xl flex flex-col items-center justify-center gap-8 z-[800]">
-          {[...NAV_LINKS, { href: "#contact", label: "Contact" }].map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="font-mono text-sm text-muted hover:text-accent transition-colors"
+        {/* Hamburger */}
+        <button
+          aria-label="Toggle menu"
+          className="md:hidden text-white transition-colors hover:bg-white/5"
+          onClick={() => setIsMenuOpen((o) => !o)}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={isMenuOpen ? "close" : "open"}
+              initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+              animate={{ rotate: 0, opacity: 1, scale: 1 }}
+              exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center"
             >
-              {l.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </motion.div>
+          </AnimatePresence>
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 top-16 right-0 z-[700] bg-purple-500/5 backdrop-blur-md md:hidden"
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "spring",
+                stiffness: 320,
+                damping: 30,
+              }}
+              className="md:hidden fixed h-[calc(100vh-4rem)] w-[72%] max-w-sm top-16 right-0 border-l border-purple/20 shadow-2xl shadow-accent/10 bg-bg/30 backdrop-blur-xl z-[800] p-8"
+            >
+              <nav className="flex h-full flex-col justify-center gap-4">
+                {[...NAV_LINKS, { href: "#contact", label: "Contact" }].map(
+                  (l, i) => (
+                    <motion.a
+                      key={l.href}
+                      href={l.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{
+                        delay: i * 0.05,
+                        duration: 0.25,
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`w-full rounded-xl px-5 py-3 font-mono text-sm  transition-colors
+                        ${
+                          isActive === l.href.slice(1)
+                            ? "text-accent bg-accent/15 border border-accent/30 shadow-lg shadow-accent/10"
+                            : "text-muted hover:bg-white/5 hover:text-accent"
+                        }`}
+                    >
+                      {l.label}
+                    </motion.a>
+                  ),
+                )}
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -33,7 +33,7 @@ const COLLAB_CARDS = [
 
 const SHARE = [
   { Icon: Copy, label: "Copy Link", action: "copy" },
-  { Icon: Send, label: "Share on Telegram", acttion: "telegram" },
+  { Icon: Send, label: "Share on Telegram", action: "telegram" },
 ];
 const Collab = () => {
   return (
