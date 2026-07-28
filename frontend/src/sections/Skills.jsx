@@ -9,7 +9,9 @@ const SkillCategory = ({ Icon, label, skills }) => {
   return (
     <div ref={ref} className="card card-hover p-6">
       <h3 className="flex items-center gap-2 font-display font-bold text-[0.98rem] mb-5">
-        <Icon size={18} />
+        <span className="border border-purple/10 px-2 py-1 rounded-full bg-purple/20">
+          <Icon size={18} />
+        </span>
         {label}
       </h3>
       <div className="flex flex-col gap-3.5">
@@ -56,7 +58,7 @@ const Skills = () => {
       <div className="max-w-[1180px] mx-auto px-10 md:px-14">
         <div className="section-label">// 02 - Skills</div>
         <h2 className="section-title">
-          Tech <em>Arsenal</em>
+          Tech <em className="text-accent">Arsenal</em>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-5">

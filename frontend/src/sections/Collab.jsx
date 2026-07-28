@@ -41,7 +41,7 @@ const Collab = () => {
       <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 05 - Collaborate</div>
         <h2 className="section-title">
-          Let's Build <em>Together</em>
+          Let's Build <em className="text-accent">Together</em>
         </h2>
         <p className="text-muted text-[1rem] max-w-140 mb-11">
           Always looking for friends to discuss ideas, code together, or
@@ -72,7 +72,7 @@ const Collab = () => {
                 </p>
                 <a
                   href="#contact"
-                  className="flex items-center gap-2 font-mono text-[0.75rem] text-accent mt-auto pt-1.5
+                  className="flex items-center justify-center gap-2 font-mono text-[0.75rem] text-accent mt-auto pt-1.5
                 hover:tracking-wider transition-all duration-200"
                 >
                   {card.cta} <MoveUpRight size={14} />
@@ -97,7 +97,7 @@ const Collab = () => {
                 Invite a Friend
               </h3>
 
-              <p className="text-muted text-[0.85rem]">
+              <p className="mt-3 text-muted text-[0.85rem]">
                 Know someone who'd love to collaborate? Share this portfolio.
               </p>
             </div>

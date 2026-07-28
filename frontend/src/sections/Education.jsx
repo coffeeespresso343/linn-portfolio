@@ -61,7 +61,7 @@ const Education = () => {
       <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 04 - Educations</div>
         <h2 className="section-title">
-          My <em>Journey</em>
+          My <em className="text-accent">Journey</em>
         </h2>
 
         <div className="relative timeline-line pl-0">

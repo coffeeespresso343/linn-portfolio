@@ -40,7 +40,7 @@ const Hero = () => {
           </span>
         </h1>
         <p className="font-mono text-muted text-[0.8rem] tracking-widest animate-[fadeUp_.85s_.28s_cubic-bezier(.16,1,.3,1)_both]">
-          IT Student &nbsp;.&nbsp; Full-Stack Enthusiast &nbsp;.&nbsp;Builder of
+          IT Student&nbsp;.&nbsp;Full-Stack Enthusiast&nbsp;.&nbsp;Builder of
           Things
         </p>
         <p className="text-muted max-w-112.5 text-[1rem] animate-[fadeUp_.85s_.28s_cubic-bezier(.16,1,.3,1)_both]">

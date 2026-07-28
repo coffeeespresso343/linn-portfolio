@@ -83,8 +83,8 @@ const ProjectCard = ({
             className="flex items-center bg-bg2 border border-white/[0.07] rounded-full px-2 py-0.5 gap-1 font-mono text-[0.73rem] text-purple lg:text-muted hover:text-accent hover:bg-purple/10 transition-colors"
           >
             <svg
-              width="16"
-              height="16"
+              width="15"
+              height="15"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

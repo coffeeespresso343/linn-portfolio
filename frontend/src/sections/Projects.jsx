@@ -16,7 +16,7 @@ const Projects = () => {
       <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 03 - Projects</div>
         <h2 className="section-title">
-          Things I've <em>Built</em>
+          Things I've <em className="text-accent">Built</em>
         </h2>
 
         {/* Filter tabs */}
