@@ -40,7 +40,7 @@ const About = () => {
       <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 01 - About</div>
 
-        <div className="grid md:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
           <FadeIn>
             <h2 className="section-title">
               Passionate about <br />

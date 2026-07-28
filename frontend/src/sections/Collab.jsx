@@ -1,7 +1,10 @@
 import {
   BookOpenCheck,
+  Copy,
+  Handshake,
   MessageSquareCode,
   MoveUpRight,
+  Send,
   TrophyIcon,
 } from "lucide-react";
 import FadeIn from "../components/ui/FadeIn";
@@ -28,6 +31,10 @@ const COLLAB_CARDS = [
   },
 ];
 
+const SHARE = [
+  { Icon: Copy, label: "Copy Link", action: "copy" },
+  { Icon: Send, label: "Share on Telegram", acttion: "telegram" },
+];
 const Collab = () => {
   return (
     <section id="collab" className="py-28 bg-bg">
@@ -55,7 +62,7 @@ const Collab = () => {
                 }`}
               >
                 <div className="flex items-center gap-2 text-[1.05rem] font-display font-bold">
-                  <span className="bg-surface border rounded-xl px-2 py-1 text-purple">
+                  <span className="bg-accent/10 border border-accent/16 rounded-xl px-2 py-1 text-accent">
                     {<card.Icon size={15} />}
                   </span>
                   <h3>{card.title}</h3>
@@ -76,6 +83,39 @@ const Collab = () => {
         </div>
 
         {/* Invite box */}
+        <FadeIn>
+          <div
+            className="rounded-2xl border border-purple/24 p-7 md:p-8
+          bg-linear-to-br from-purple/8 to-accent/3
+          flex flex-col md:flex-row items-start md:items-center justify-between gap-5"
+          >
+            <div>
+              <h3 className="flex items-center gap-2 font-display font-bold text-[1.02rem] mb-1">
+                <span className="bg-accent/10 border border-accent/16 rounded-xl px-2 py-1 text-accent">
+                  <Handshake size={15} />
+                </span>
+                Invite a Friend
+              </h3>
+
+              <p className="text-muted text-[0.85rem]">
+                Know someone who'd love to collaborate? Share this portfolio.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {SHARE.map((s) => (
+                <button
+                  key={s.action}
+                  // onClick={} later
+                  className="flex items-center gap-1 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
+                  font-mono text-[0.74rem] transition-all duration-200 hover:border-accent/30 hover:text-accent hover:-translate-y-0.5"
+                >
+                  {<s.Icon size={14} />}
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
