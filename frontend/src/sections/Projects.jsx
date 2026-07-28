@@ -13,7 +13,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-28 bg-bg">
-      <div className="max-w-[1180px] mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 03 - Projects</div>
         <h2 className="section-title">
           Things I've <em>Built</em>
@@ -39,7 +39,7 @@ const Projects = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4.5">
           {visible.map((p, i) => (
             <FadeIn key={p.id} delay={i * 60}>
               <ProjectCard {...p} />

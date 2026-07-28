@@ -76,7 +76,7 @@ const Hero = () => {
 
       {/* RIGHT */}
       <div className="md:flex relative z-10 flex-col gap-5">
-        {/* <div className="relative flex justify-center">
+        <div className="relative flex justify-center">
           <div className="relative w-49 h-49">
             <div className="absolute -inset-1.5 rounded-full border-2 border-dashed border-accent/28 animate-spin-slow" />
             <div className="absolute -inset-0.5 rounded-full border border-accent/15" />
@@ -95,7 +95,7 @@ const Hero = () => {
               Open to collab
             </div>
           </div>
-        </div> */}
+        </div>
         <Terminal />
       </div>
     </section>

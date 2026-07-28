@@ -37,7 +37,7 @@ const INFO = [
 const About = () => {
   return (
     <section id="about" className="py-28 bg-bg">
-      <div className="max-w-[1180px] mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-10 md:px-14">
         <div className="section-label">// 01 - About</div>
 
         <div className="grid md:grid-cols-2 gap-20 items-start">
@@ -73,7 +73,7 @@ const About = () => {
           </FadeIn>
 
           {/* Profile card + ticker */}
-          <FadeIn delay={120} className="max-w-120">
+          <FadeIn delay={120}>
             <div className="card card-hover p-6 flex gap-4 items-center mb-4">
               <div
                 className="w-17 h-17 rounded-full overflow-hidden shrink-0 
@@ -104,6 +104,7 @@ const About = () => {
               </div>
             </div>
 
+            {/* Ticker */}
             <div className="bg-surface border border-white/[0.07] rounded-xl p-4 overflow-hidden">
               <p className="flex items-center gap-1.5 font-mono text-[0.66rem] text-dim tracking-[2px] mb-2">
                 Currently learning
