@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Loader2, LucideMessageSquareCheck, LucideSend } from "lucide-react";
+import {
+  HeartHandshake,
+  Loader2,
+  LucideMessageSquareCheck,
+  LucideSend,
+  Mail,
+  MessageSquare,
+  User2,
+} from "lucide-react";
 
 const SUBJECTS = [
   { value: "collab", label: "Project Collaboration" },
@@ -123,14 +131,20 @@ const ContactForm = () => {
           >
             Your Name *
           </label>
-          <input
-            type="text"
-            name="senderName"
-            value={form.senderName}
-            onChange={handleChange}
-            placeholder="Enter your name"
-            className={inputCls}
-          />
+          <div className="relative">
+            <User2
+              size={16}
+              className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
+            />
+            <input
+              type="text"
+              name="senderName"
+              value={form.senderName}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              className={`${inputCls} pl-10`}
+            />
+          </div>
           {errors.senderName && (
             <span className="font-mono text-[0.7rem] text-red-400">
               {errors.senderName}
@@ -144,14 +158,20 @@ const ContactForm = () => {
           >
             Your Email *
           </label>
-          <input
-            type="email"
-            name="senderEmail"
-            value={form.senderEmail}
-            onChange={handleChange}
-            placeholder="you@gmail.com"
-            className={inputCls}
-          />
+          <div className="relative">
+            <Mail
+              size={16}
+              className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
+            />
+            <input
+              type="email"
+              name="senderEmail"
+              value={form.senderEmail}
+              onChange={handleChange}
+              placeholder="you@gmail.com"
+              className={`${inputCls} pl-10`}
+            />
+          </div>
           {errors.senderEmail && (
             <span className="font-mono text-[0.7rem] text-red-400">
               {errors.senderEmail}
@@ -168,19 +188,25 @@ const ContactForm = () => {
         >
           Subject *
         </label>
-        <select
-          name="subject"
-          value={form.subject}
-          onChange={handleChange}
-          className={`${inputCls} appearance-none cursor-pointer`}
-        >
-          <option value="">- Choose a topic -</option>
-          {SUBJECTS.map((sub) => (
-            <option key={sub.value} value={sub.value}>
-              {sub.label}
-            </option>
-          ))}
-        </select>
+        <div className="relative">
+          <HeartHandshake
+            size={16}
+            className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
+          />
+          <select
+            name="subject"
+            value={form.subject}
+            onChange={handleChange}
+            className={`${inputCls} appearance-none cursor-pointer pl-10`}
+          >
+            <option value="">- Choose a topic -</option>
+            {SUBJECTS.map((sub) => (
+              <option key={sub.value} value={sub.value}>
+                {sub.label}
+              </option>
+            ))}
+          </select>
+        </div>
         {errors.subject && (
           <span className="font-mono text-[0.7rem] text-red-400">
             {errors.subject}
@@ -196,14 +222,20 @@ const ContactForm = () => {
         >
           Message *
         </label>
-        <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          placeholder="Tell me about your idea, project, or just say hello..."
-          rows={6}
-          className={`${inputCls} resize-y min-h-32`}
-        />
+        <div className="relative">
+          <MessageSquare
+            size={16}
+            className="pointer-events-none absolute text-muted left-3 top-5.5 -translate-y-1/2"
+          />
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Tell me about your idea, project, or just say hello..."
+            rows={6}
+            className={`${inputCls} resize-y min-h-32 pl-10`}
+          />
+        </div>
         <div className="flex justify-between">
           {errors.message ? (
             <span className="font-mono text-[0.7rem] text-red-400">
