@@ -8,6 +8,7 @@ import {
   TrophyIcon,
 } from "lucide-react";
 import FadeIn from "../components/ui/FadeIn";
+import { siFacebook } from "simple-icons";
 
 const COLLAB_CARDS = [
   {
@@ -31,10 +32,6 @@ const COLLAB_CARDS = [
   },
 ];
 
-const SHARE = [
-  { Icon: Copy, label: "Copy Link", action: "copy" },
-  { Icon: Send, label: "Share on Telegram", action: "telegram" },
-];
 const Collab = () => {
   return (
     <section id="collab" className="py-28 bg-bg">
@@ -62,7 +59,7 @@ const Collab = () => {
                 }`}
               >
                 <div className="flex items-center gap-2 text-[1.05rem] font-display font-bold">
-                  <span className="bg-accent/10 border border-accent/16 rounded-xl px-2 py-1 text-accent">
+                  <span className="bg-accent/10 border border-accent/16 rounded-xl px-3 py-2 text-accent">
                     {<card.Icon size={15} />}
                   </span>
                   <h3>{card.title}</h3>
@@ -91,7 +88,7 @@ const Collab = () => {
           >
             <div>
               <h3 className="flex items-center gap-2 font-display font-bold text-[1.02rem] mb-1">
-                <span className="bg-accent/10 border border-accent/16 rounded-xl px-2 py-1 text-accent">
+                <span className="bg-accent/10 border border-accent/16 rounded-xl px-3 py-2 text-accent">
                   <Handshake size={15} />
                 </span>
                 Invite a Friend
@@ -102,17 +99,31 @@ const Collab = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-2.5">
-              {SHARE.map((s) => (
-                <button
-                  key={s.action}
-                  // onClick={} later
-                  className="flex items-center gap-1 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
+              <button
+                // onClick={} later
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
                   font-mono text-[0.74rem] transition-all duration-200 hover:border-accent/30 hover:text-accent hover:-translate-y-0.5"
-                >
-                  {<s.Icon size={14} />}
-                  {s.label}
-                </button>
-              ))}
+              >
+                <Copy size={14} />
+                Copy Link
+              </button>
+              <button
+                // onClick={} later
+                className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
+                  font-mono text-[0.74rem] transition-all duration-200 hover:border-accent/30 hover:text-accent hover:-translate-y-0.5"
+              >
+                <span className="flex items-center justify-center ">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    className="size-4 transition-colors duration-200"
+                  >
+                    <path d={siFacebook.path} />
+                  </svg>
+                </span>
+                Share on Facebook
+              </button>
             </div>
           </div>
         </FadeIn>

@@ -19,11 +19,11 @@ function Counter({ target, label }) {
 const StatCounter = () => {
   return (
     <div className="flex items-center gap-7">
-      <Counter target={12} label="Projects Done" />
+      <Counter target={5} label="Projects Done" />
       <div className="w-px h-9 bg-white/7" />
       <Counter target={8} label="Technologies" />
       <div className="w-px h-9 bg-white/7" />
-      <Counter target={5} label="Team Projects" />
+      <Counter target={4} label="Team Projects" />
     </div>
   );
 };

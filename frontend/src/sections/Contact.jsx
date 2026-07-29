@@ -1,34 +1,31 @@
 import FadeIn from "../components/ui/FadeIn";
 import ContactForm from "../components/ContactForm";
-import github from "../assets/icons/github.svg";
-import fb from "../assets/icons/fb.svg";
-import tele from "../assets/icons/tele.svg";
-import email from "../assets/icons/email.svg";
+import { siFacebook, siGithub, siGmail, siTelegram } from "simple-icons";
 
 const SOCIAL_LINKS = [
   {
     label: "Email",
     value: "linnkhant343@gmail.com",
     href: "mailto:linnkhant343@gmail.com",
-    icon: email,
+    icon: siGmail,
   },
   {
     label: "GitHub",
     value: "@coffeeespresso343",
     href: "https://github.com/coffeeespresso343",
-    icon: github,
+    icon: siGithub,
   },
   {
     label: "Facebook",
     value: "@linnkhant404",
-    href: "https://linkedin.com/in/linnkhant",
-    icon: fb,
+    href: "https://www.facebook.com/linnkhant404",
+    icon: siFacebook,
   },
   {
     label: "Telegram",
     value: "@linnkhant343",
     href: "https://t.me/linnkhant343",
-    icon: tele,
+    icon: siTelegram,
   },
 ];
 
@@ -69,12 +66,14 @@ const Contact = () => {
                       className="flex items-center gap-3 p-2.5 rounded-lg border border-white/[0.07]
                       hover:border-accent/26 hover:bg-accent/[0.028] transition-all duration-200 text-[0.82rem]"
                     >
-                      <span className="h-6 w-6 bg-white rounded-full">
-                        <img
-                          src={link.icon}
-                          alt={link.icon}
-                          className="rounded-full ring-[0.5px] ring-white object-cover"
-                        />
+                      <span className="bg-accent/10 rounded-xl flex items-center justify-center w-8 h-8">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-5 w-5 text-white transition-colors duration-200 hover:text-accent opacity-60"
+                        >
+                          <path d={link.icon.path} />
+                        </svg>
                       </span>
                       <div>
                         <strong className="block text-[0.75rem] mb-0.5">

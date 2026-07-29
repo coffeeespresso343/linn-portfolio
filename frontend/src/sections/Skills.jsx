@@ -71,8 +71,9 @@ const Skills = () => {
           {/* Learning Objectives */}
           <FadeIn className="md:col-span-2">
             <div className="card p-6">
-              <h3 className="font-display font-bold text-[0.95rem] flex items-center gap-2 mb-5">
-                <BookOpenCheck size={18} /> Learning Objectives
+              <h3 className="font-displa font-bold text-[0.95rem] flex items-center gap-2 mb-5">
+                <BookOpenCheck size={18} />
+                Learning Objectives
               </h3>
               <div className="grid sm:grid-cols-2 gap-3.5">
                 {learningObjectives.map((obj) => (

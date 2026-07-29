@@ -55,7 +55,7 @@ const Hero = () => {
           </a>
           <a
             href="#contact"
-            className="btn-ghost flex items-center justify-center gap-1.5"
+            className="btn-ghost border-accent flex items-center justify-center gap-1.5"
           >
             <MessageSquareCode size={16} />
             Let's Talk

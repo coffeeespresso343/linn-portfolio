@@ -1,6 +1,5 @@
 import {
   ArrowBigUpDash,
-  Clock,
   Code2,
   Leaf,
   Settings,
@@ -16,7 +15,7 @@ export const skillCategories = [
     label: "Backend",
     skills: [
       { name: "Java", pct: 85 },
-      { name: "Spring Boot", pct: 80 },
+      { name: "Spring Boot", pct: 75 },
       { name: "MySQL", pct: 70 },
       { name: "REST APIs", pct: 65 },
     ],
@@ -28,8 +27,8 @@ export const skillCategories = [
     skills: [
       { name: "HTML / CSS", pct: 90 },
       { name: "JavaScript", pct: 80 },
-      { name: "React", pct: 65 },
-      { name: "Tailwind CSS", pct: 55 },
+      { name: "React", pct: 79 },
+      { name: "Tailwind CSS", pct: 85 },
     ],
   },
   {
@@ -39,8 +38,8 @@ export const skillCategories = [
     skills: [
       { name: "Git & GitHub", pct: 75 },
       { name: "Docker", pct: 50 },
-      { name: "Linux / CLI", pct: 60 },
-      { name: "AWS Basics", pct: 45 },
+      { name: "OAuth", pct: 40 },
+      { name: "Appwrite Cloud", pct: 45 },
     ],
   },
 ];
@@ -71,7 +70,7 @@ export const learningObjectives = [
     Icon: Leaf,
     label: "Spring Boot REST APIs",
     sub: "CRUD, JWT, Hibernate ORM",
-    pct: 100,
+    pct: 90,
     done: true,
   },
 ];
@@ -79,8 +78,11 @@ export const learningObjectives = [
 export const tickerItems = [
   "Spring Boot",
   "Microservices",
+  "Cloud Computing",
   "Docker",
   "Kubernetes",
   "React",
   "System Design",
+  "Networking",
+  "Security",
 ];

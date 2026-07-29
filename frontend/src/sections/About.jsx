@@ -3,6 +3,7 @@ import {
   Clock3,
   Code2,
   Coffee,
+  Flame,
   GraduationCap,
   Lightbulb,
   LocationEdit,
@@ -20,7 +21,7 @@ const TAGS = [
   { id: 1, Icon: GraduationCap, label: "CS Student" },
   { id: 2, Icon: Lightbulb, label: "Problem Solver" },
   { id: 3, Icon: Users, label: "Team Player" },
-  { id: 4, Icon: Code2, label: "Fast Learner" },
+  { id: 4, Icon: Flame, label: "Fast Learner" },
   { id: 5, Icon: Coffee, label: "Coffee Addict" },
 ];
 

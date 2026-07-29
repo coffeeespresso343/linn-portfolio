@@ -1,15 +1,23 @@
 import { MoveUp } from "lucide-react";
+import Logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="border-t border-white/[0.07] bg-bg py-7">
       <div className="max-w-295 mx-auto px-10 md:px-14 flex flex-col md:flex-row items-center justify-between gap-4 flex-wrap">
-        <span className="font-mono font-bold text-[0.98rem] tracking-widest">
-          <span className="text-accent">[</span>
-          LK
-          <span className="text-accent">]</span>
-        </span>
-        <p className="flex items-center flex-col md:flex-row text-[0.76rem] text-dim">
+        <div className="rounded-full flex items-center gap-1 justify-center h-6 w-6">
+          <img
+            src={Logo}
+            alt="Linn Logo"
+            className="h-full w-full rounded-full ring ring-accent/20"
+          />
+          <span className="font-mono font-bold text-[0.98rem] tracking-widest">
+            <span className="text-accent">[</span>
+            LK
+            <span className="text-accent">]</span>
+          </span>
+        </div>
+        <p className="flex items-center flex-col text-[0.76rem] text-dim">
           Build with Heart and too much Coffee
           <span> Linn Khant &copy; {new Date().getFullYear()}</span>
         </p>

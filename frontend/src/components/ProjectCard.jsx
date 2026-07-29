@@ -5,6 +5,7 @@ const ProjectCard = ({
   title,
   description,
   tags,
+  Icon,
   team,
   year,
   featured,
@@ -62,13 +63,14 @@ const ProjectCard = ({
       {/* Meta */}
       <div className="flex items-center gap-2 flex-wrap">
         <span
-          className={`font-mono text-[0.65rem] px-2.5 py-0.5 rounded-full border
+          className={`flex items-center justify-center gap-1 font-mono text-[0.65rem] px-2.5 py-0.5 rounded-full border
                           ${
                             team.includes("Team")
                               ? "bg-accent/[0.07] text-accent border-accent/16"
                               : "bg-yellow/[0.07] text-yellow border-yellow/16"
                           }`}
         >
+          {<Icon size={14} />}
           {team}
         </span>
         <span className="font-mono text-[0.65rem] text-dim">{year}</span>

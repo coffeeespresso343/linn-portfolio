@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, User, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import Logo from "../../assets/logo.png";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -54,14 +55,16 @@ const Navbar = () => {
     `}
       >
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-accent/30">
-            <User size={28} />
-          </div>
-          <span className="font-mono font-bold text-lg tracking-widest">
-            <span className="text-accent">[</span>LK
-            <span className="text-accent">]</span>
-          </span>
+        <div>
+          <a href="#hero" className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-accent/20">
+              <img src={Logo} alt="Linn Logo" className="hover:rotate-12" />
+            </div>
+            <span className="font-mono font-bold text-lg tracking-widest">
+              <span className="text-accent">[</span>LK
+              <span className="text-accent">]</span>
+            </span>
+          </a>
         </div>
 
         {/* Links */}
@@ -70,7 +73,7 @@ const Navbar = () => {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`font-mono text-[0.75rem] tracking-wide transition-colors duration-200 ${
+                className={`font-mono text-[0.85rem] tracking-wide transition-colors duration-200 ${
                   isActive === l.href.slice(1)
                     ? "text-accent"
                     : "text-muted hover:text-accent"
@@ -83,7 +86,7 @@ const Navbar = () => {
           <li>
             <a
               href="#contact"
-              className="font-mono text-[0.75rem] text-accent border border-accent/30 px-4 py-1.5 rounded-md transition-all duration-200 hover:bg-accent hover:text-bg"
+              className="font-mono text-[0.85rem] text-accent border border-accent/30 px-4 py-1.5 rounded-md transition-all duration-200 hover:bg-accent hover:text-bg"
             >
               Contact
             </a>
@@ -133,7 +136,7 @@ const Navbar = () => {
               }}
               className="md:hidden fixed h-[calc(100vh-4rem)] w-[72%] max-w-sm top-16 right-0 border-l border-purple/20 shadow-2xl shadow-accent/10 bg-bg/30 backdrop-blur-xl z-[800] p-8"
             >
-              <nav className="flex h-full flex-col justify-center gap-4">
+              <nav className="flex flex-col justify-center gap-4">
                 {[...NAV_LINKS, { href: "#contact", label: "Contact" }].map(
                   (l, i) => (
                     <motion.a
