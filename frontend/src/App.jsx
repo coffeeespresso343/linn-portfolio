@@ -32,6 +32,7 @@ function App() {
   }, [showToast]);
 
   useEffect(() => {
+    // Ctrl + K to jump contact section
     function onKey(e) {
       if (e.ctrlKey && e.key === "k") {
         e.preventDefault();
@@ -50,7 +51,7 @@ function App() {
 
   return (
     <>
-      <div className="noise-overlay fixed inset-0 z-[998] pointer-events-none opacity-25" />
+      <div className="noise-overlay fixed inset-0 z-[999] pointer-events-none opacity-25" />
       <Navbar />
       <main>
         <Hero />

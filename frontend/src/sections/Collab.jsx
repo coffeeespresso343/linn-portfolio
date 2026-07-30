@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import FadeIn from "../components/ui/FadeIn";
 import { siFacebook } from "simple-icons";
+import { useToast } from "../context/ToastContext";
 
 const COLLAB_CARDS = [
   {
@@ -33,6 +34,11 @@ const COLLAB_CARDS = [
 ];
 
 const Collab = () => {
+  const { showToast } = useToast();
+
+  const handleClick = () => {
+    showToast("Sorry, This action cannot be work yet", "info");
+  };
   return (
     <section id="collab" className="py-28 bg-bg">
       <div className="max-w-295 mx-auto px-10 md:px-14">
@@ -100,7 +106,7 @@ const Collab = () => {
             </div>
             <div className="flex flex-wrap gap-2.5">
               <button
-                // onClick={} later
+                onClick={handleClick}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
                   font-mono text-[0.74rem] transition-all duration-200 hover:border-accent/30 hover:text-accent hover:-translate-y-0.5"
               >
@@ -108,7 +114,7 @@ const Collab = () => {
                 Copy Link
               </button>
               <button
-                // onClick={} later
+                onClick={handleClick}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/[0.07] text-muted bg-surface
                   font-mono text-[0.74rem] transition-all duration-200 hover:border-accent/30 hover:text-accent hover:-translate-y-0.5"
               >

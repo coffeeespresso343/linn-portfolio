@@ -9,6 +9,7 @@ import {
   User2,
 } from "lucide-react";
 import { useToast } from "../context/ToastContext";
+import { sendContactMessage } from "../api/contactApi";
 
 const SUBJECTS = [
   { value: "collab", label: "Project Collaboration" },
@@ -40,14 +41,14 @@ const inputCls = `w-full bg-surface2 border border-white/[0.07] rounded-lg px-3.
 
 function validate(data) {
   const errs = { ...INITIAL_ERRORS };
-  if (!data.senderName.trim()) errs.senderName = "⚠ Name is required";
-  if (!data.senderEmail.trim()) errs.senderEmail = "⚠ Email is required";
+  if (!data.senderName.trim()) errs.senderName = "Name is required";
+  if (!data.senderEmail.trim()) errs.senderEmail = "Email is required";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.senderEmail))
-    errs.senderEmail = "⚠ Enter a valid email";
-  if (!data.subject) errs.subject = "⚠ Please choose a topic";
-  if (!data.message.trim()) errs.message = "⚠ Message cannot be empty";
+    errs.senderEmail = "Enter a valid email";
+  if (!data.subject) errs.subject = "Please choose a topic";
+  if (!data.message.trim()) errs.message = "Message cannot be empty";
   else if (data.message.trim().length < 10)
-    errs.message = "⚠ Message too short (min 10 chars)";
+    errs.message = "Message too short (min 10 chars)";
   return errs;
 }
 
@@ -73,29 +74,29 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    showToast("Hello", "success");
-    showToast("Hello", "error");
-    showToast("Hello", "info");
 
     const errs = validate(form);
 
     if (Object.values(errs).some(Boolean)) {
       setErrors(errs);
+      showToast("Please fix the highlighted fields.", "error");
       return;
     }
 
     setStatus("sending");
 
     try {
-      // await sendContactMessage(form);
+      await sendContactMessage(form);
 
       setStatus("success");
+      showToast("Message sent!", "success");
     } catch {
       // Fallback to mailto
       // const ml = `mailto:linnkhant343@gmail.com?subject=${encodeURIComponent('[Portfolio] ' + form.subject)}&body=${encodeURIComponent(`From: ${form.senderName} <${form.senderEmail}>\n\n${form.message}`)}`;
       // window.location.href = ml;
-      setStatus("success");
-      // Toast later
+      // setStatus("success");
+      setStatus("error");
+      showToast("Message failed to sent! Try again later.", "error");
     }
   };
 

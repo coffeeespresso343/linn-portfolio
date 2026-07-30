@@ -26,7 +26,7 @@ export function ToastProvider({ children }) {
   }, []);
 
   const showToast = useCallback(
-    (message, type = "success", duration = 5000) => {
+    (message, type = "info", duration = 5000) => {
       const id = Date.now() + Math.random();
       const timeout = window.setTimeout(() => {
         removeToast(id);
@@ -72,10 +72,10 @@ export function ToastProvider({ children }) {
                 
                 ${
                   toast.type === "success"
-                    ? "border-emerald-500"
+                    ? "border-emerald-500/20"
                     : toast.type === "error"
-                      ? "border-red-400"
-                      : "border-accent"
+                      ? "border-red-400/20"
+                      : "border-accent/20"
                 }`}
               >
                 <div className="flex items-start gap-3 p-4 pr-2">
@@ -85,14 +85,14 @@ export function ToastProvider({ children }) {
                       toast.type === "success"
                         ? "mt-0.5 shrink-0 text-emerald-400"
                         : toast.type === "error"
-                          ? "mt-0.5 shrink-0 text-rose-400"
+                          ? "mt-0.5 shrink-0 text-red-400"
                           : "mt-0.5 shrink-0 text-accent"
                     }
                   />
                   <p
-                    className={`font-mono text-sm leading-relaxed ${
+                    className={`font-mono text-[12px] leading-relaxed ${
                       toast.type === "success"
-                        ? "text-emerald-400"
+                        ? "text-emerald-400-400"
                         : toast.type === "error"
                           ? "text-red-400"
                           : "text-accent"

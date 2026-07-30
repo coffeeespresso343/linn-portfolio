@@ -2,8 +2,11 @@ import { FileDown, MessageSquareCode } from "lucide-react";
 import StatCounter from "../components/StatCounter";
 import ProfileAvatar from "../components/ProfileAvatar";
 import Terminal from "../components/Terminal";
+import { useToast } from "../context/ToastContext";
 
 const Hero = () => {
+  const { showToast } = useToast();
+
   return (
     <section
       id="hero"
@@ -61,6 +64,9 @@ const Hero = () => {
             Let's Talk
           </a>
           <a
+            onClick={() =>
+              showToast("Sorry, This action cannot be work yet.", "info")
+            }
             href="#"
             className="btn-ghost flex items-center justify-center gap-1.5"
           >
@@ -87,11 +93,11 @@ const Hero = () => {
               <ProfileAvatar size={196} />
             </div>
             <div
-              className="absolute bottom-1.5 right-1 z-20 bg-bg border-2 border-green
-            rounded-full px-2.5 py-0.5 font-mono text-[0.65rem] text-green
+              className="absolute bottom-1.5 right-1 z-20 bg-bg border-2 border-emerald-400
+            rounded-full px-2.5 py-0.5 font-mono text-[0.65rem] text-emerald-400
             flex items-center gap-1.5 whitespace-nowrap"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green animate-blink" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-blink" />
               Open to collab
             </div>
           </div>
