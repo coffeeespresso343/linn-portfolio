@@ -92,7 +92,7 @@ const ContactForm = () => {
       showToast("Message sent!", "success");
     } catch {
       // Fallback to mailto
-      // const ml = `mailto:linnkhant343@gmail.com?subject=${encodeURIComponent('[Portfolio] ' + form.subject)}&body=${encodeURIComponent(`From: ${form.senderName} <${form.senderEmail}>\n\n${form.message}`)}`;
+      // const ml = `mailto:linnkhant343@gmail.com?subject=${encodeURIComponent("[Portfolio] " + form.subject)}&body=${encodeURIComponent(`From: ${form.senderName} <${form.senderEmail}>\n\n${form.message}`)}`;
       // window.location.href = ml;
       // setStatus("success");
       setStatus("error");
