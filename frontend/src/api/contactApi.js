@@ -1,5 +1,3 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
-
 export async function sendContactMessage(data) {
   const res = await fetch("/api/contact", {
     method: "POST",
