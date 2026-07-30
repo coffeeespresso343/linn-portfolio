@@ -8,6 +8,7 @@ import {
   MessageSquare,
   User2,
 } from "lucide-react";
+import { useToast } from "../context/ToastContext";
 
 const SUBJECTS = [
   { value: "collab", label: "Project Collaboration" },
@@ -55,6 +56,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [status, setStatus] = useState("idle"); //idle | sending | success
   const [charLen, setCharLen] = useState(0);
+  const { showToast } = useToast();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -71,6 +73,9 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    showToast("Hello", "success");
+    showToast("Hello", "error");
+    showToast("Hello", "info");
 
     const errs = validate(form);
 
@@ -83,8 +88,8 @@ const ContactForm = () => {
 
     try {
       // await sendContactMessage(form);
+
       setStatus("success");
-      // Toast later
     } catch {
       // Fallback to mailto
       // const ml = `mailto:linnkhant343@gmail.com?subject=${encodeURIComponent('[Portfolio] ' + form.subject)}&body=${encodeURIComponent(`From: ${form.senderName} <${form.senderEmail}>\n\n${form.message}`)}`;

@@ -1,6 +1,7 @@
 import FadeIn from "../components/ui/FadeIn";
 import ContactForm from "../components/ContactForm";
 import { siFacebook, siGithub, siGmail, siTelegram } from "simple-icons";
+import { showToast } from "../Toast/Toast";
 
 const SOCIAL_LINKS = [
   {
