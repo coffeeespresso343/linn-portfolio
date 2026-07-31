@@ -14,7 +14,7 @@ console.log(
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const OWNER_EMAIL = process.env.OWNER_EMAIL;
-const OWNER_NAME = process.env.OWNER_NAME || "Linn";
+const OWNER_NAME = process.env.OWNER_NAME || "Linn Khant";
 const FROM_EMAIL = process.env.FROM_EMAIL || "portfolio@resend.dev";
 
 async function isRateLimited(ip) {
