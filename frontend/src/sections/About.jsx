@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Clock3,
-  Code2,
   Coffee,
   Flame,
   GraduationCap,
