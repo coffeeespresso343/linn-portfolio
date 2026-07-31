@@ -90,7 +90,7 @@ export function ToastProvider({ children }) {
                     }
                   />
                   <p
-                    className={`font-mono text-[12px] leading-relaxed ${
+                    className={`font-mono text-[13px] leading-relaxed ${
                       toast.type === "success"
                         ? "text-emerald-400-400"
                         : toast.type === "error"

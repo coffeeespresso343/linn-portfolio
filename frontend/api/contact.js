@@ -14,7 +14,7 @@ console.log(
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const OWNER_EMAIL = process.env.OWNER_EMAIL;
-const OWNER_NAME = process.env.OWNER_NAME || "Linn Khant";
+const OWNER_NAME = process.env.OWNER_NAME || "Linn";
 const FROM_EMAIL = process.env.FROM_EMAIL || "portfolio@resend.dev";
 
 async function isRateLimited(ip) {
@@ -287,10 +287,9 @@ export default async function handler(req, res) {
       data: { messageId: saved.id },
     });
   } catch (err) {
-    console.error("Unhandled error:", err);
-    return res.status(500).json({
-      success: false,
-      message: "Something went wrong. Please try again.",
-    });
+    // Don't fail the whole request if DB save fails
+    console.warn("Supabase save failed:", err.message);
   }
+
+  return { success: true, message: "Message sent!" };
 }

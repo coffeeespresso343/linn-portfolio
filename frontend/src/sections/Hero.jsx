@@ -58,7 +58,7 @@ const Hero = () => {
           </a>
           <a
             href="#contact"
-            className="btn-ghost border-accent flex items-center justify-center gap-1.5"
+            className="btn-ghost flex items-center justify-center gap-1.5"
           >
             <MessageSquareCode size={16} />
             Let's Talk
@@ -67,7 +67,7 @@ const Hero = () => {
             onClick={() =>
               showToast("Sorry, This action cannot be work yet.", "info")
             }
-            href="#"
+            href=""
             className="btn-ghost flex items-center justify-center gap-1.5"
           >
             <FileDown size={16} /> Download CV
