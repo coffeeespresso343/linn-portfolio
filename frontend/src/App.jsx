@@ -21,8 +21,8 @@ function App() {
 
       showToast(
         hasVisitedBefore
-          ? "Welcome back! Good to see you again"
-          : "Hello, Welcome to my website",
+          ? "Welcome back! Good to see you again."
+          : "Hello, Welcome to my website. Take a look around.",
         "info",
       );
 

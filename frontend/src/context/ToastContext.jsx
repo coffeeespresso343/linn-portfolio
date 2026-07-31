@@ -41,7 +41,7 @@ export function ToastProvider({ children }) {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <div className="pointer-events-none fixed top-25 right-4 z-100 flex w-[calc(100%-2rem)] max-w-sm sm:top-27 sm:right-6 sm:w-full flex-col gap-3">
+      <div className="pointer-events-none flex justify-center fixed top-25 right-4 z-100  w-[calc(100%-2rem)] max-w-sm sm:top-27 sm:right-6 sm:w-full flex-col gap-3">
         <AnimatePresence>
           {toasts.map((toast) => {
             const Icon = ICONS[toast.type] || Info;
@@ -78,9 +78,9 @@ export function ToastProvider({ children }) {
                       : "border-accent/20"
                 }`}
               >
-                <div className="flex items-start gap-3 p-4 pr-2">
+                <div className="flex items-center gap-3 p-2 pr-2">
                   <Icon
-                    size={20}
+                    size={16}
                     className={
                       toast.type === "success"
                         ? "mt-0.5 shrink-0 text-emerald-400"
@@ -109,7 +109,7 @@ export function ToastProvider({ children }) {
                   </button>
                 </div>
                 <motion.div
-                  className={`absolute inset-x-0 bottom-0 h-1 origin-left ${barColor}`}
+                  className={`absolute inset-x-0 bottom-0 h-0.5 origin-left ${barColor}`}
                   initial={{ scaleX: 1 }}
                   animate={{ scaleX: 0 }}
                   transition={{

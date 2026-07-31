@@ -91,7 +91,7 @@ const ContactForm = () => {
       else if (errs.subject) subRef.current?.focus();
       else msgRef.current?.focus();
 
-      showToast("Please fix the highlighted fields", "error");
+      showToast("Please fix the highlighted fields.", "error");
       return;
     }
 
@@ -99,12 +99,12 @@ const ContactForm = () => {
     try {
       await sendContactMessage(form);
       setStatus("success");
-      showToast("Message sent successfully! Thank You", "success");
+      showToast("Message successfully sent. Thank You!", "success");
     } catch (err) {
       console.error("Contact error:", err);
       setStatus("error");
       showToast(
-        "Something went wrong. Please try again or contact me directly",
+        "Something went wrong. Please try again later or contact me directly.",
         "error",
       );
     }
@@ -128,6 +128,12 @@ const ContactForm = () => {
         </h3>
         <p className="text-muted mb-6 text-center">
           Thanks for reaching out! I'll reply within 24 hours.
+        </p>
+        <p className="text-muted border border-white/[0.07] p-2 rounded-xl font-mono mb-6 text-xs text-center">
+          Check auto-reply message at your Gmail App. <br />
+          <span className="">If not found, find it at span mail.</span>
+          <br />
+          Thank You {form.senderName}!
         </p>
         <button onClick={reset} className="btn-ghost">
           Send Another
