@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   HeartHandshake,
   Loader2,
@@ -41,10 +41,11 @@ const inputCls = `w-full bg-surface2 border border-white/[0.07] rounded-lg px-3.
 
 function validate(data) {
   const errs = { ...INITIAL_ERRORS };
-  if (!data.senderName.trim()) errs.senderName = "Name is required";
-  if (!data.senderEmail.trim()) errs.senderEmail = "Email is required";
+  if (!data.senderName.trim()) errs.senderName = "Please enter your name";
+  if (!data.senderEmail.trim())
+    errs.senderEmail = "Please enter your email address";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.senderEmail))
-    errs.senderEmail = "Enter a valid email";
+    errs.senderEmail = "Please enter a valid email";
   if (!data.subject) errs.subject = "Please choose a topic";
   if (!data.message.trim()) errs.message = "Message cannot be empty";
   else if (data.message.trim().length < 10)
@@ -57,6 +58,12 @@ const ContactForm = () => {
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [status, setStatus] = useState("idle"); //idle | sending | success
   const [charLen, setCharLen] = useState(0);
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const subRef = useRef(null);
+  const msgRef = useRef(null);
+
   const { showToast } = useToast();
 
   const handleChange = (e) => {
@@ -74,10 +81,17 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const errs = validate(form);
     if (Object.values(errs).some(Boolean)) {
       setErrors(errs);
-      showToast("Please fix highlighted fields", "error");
+
+      if (errs.senderName) nameRef.current?.focus();
+      else if (errs.senderEmail) emailRef.current?.focus();
+      else if (errs.subject) subRef.current?.focus();
+      else msgRef.current?.focus();
+
+      showToast("Please fix the highlighted fields", "error");
       return;
     }
 
@@ -85,11 +99,14 @@ const ContactForm = () => {
     try {
       await sendContactMessage(form);
       setStatus("success");
-      showToast("Message sent! 🎉", "success");
+      showToast("Message sent successfully! Thank You", "success");
     } catch (err) {
       console.error("Contact error:", err);
       setStatus("error");
-      showToast("Something went wrong. Please try again.", "error");
+      showToast(
+        "Something went wrong. Please try again or contact me directly",
+        "error",
+      );
     }
   };
 
@@ -103,7 +120,7 @@ const ContactForm = () => {
   if (status === "success") {
     return (
       <div className="flex items-center flex-col">
-        <div className="mb-4 flex items-center justify-center text-green">
+        <div className="mb-4 flex items-center justify-center text-emerald-500">
           <LucideMessageSquareCheck size={32} />
         </div>
         <h3 className="font-display font-bold text-[1.35rem] mb-2">
@@ -136,12 +153,15 @@ const ContactForm = () => {
               className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
             />
             <input
+              ref={nameRef}
               type="text"
               name="senderName"
               value={form.senderName}
               onChange={handleChange}
               placeholder="Enter your name"
-              className={`${inputCls} pl-10`}
+              className={`${inputCls} pl-9 ${
+                errors.senderName ? "focus:border-red-400" : ""
+              }`}
             />
           </div>
           {errors.senderName && (
@@ -163,12 +183,15 @@ const ContactForm = () => {
               className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
             />
             <input
+              ref={emailRef}
               type="email"
               name="senderEmail"
               value={form.senderEmail}
               onChange={handleChange}
               placeholder="you@gmail.com"
-              className={`${inputCls} pl-10`}
+              className={`${inputCls} pl-9 ${
+                errors.senderEmail ? "focus:border-red-400" : ""
+              }`}
             />
           </div>
           {errors.senderEmail && (
@@ -193,10 +216,13 @@ const ContactForm = () => {
             className="pointer-events-none absolute text-muted left-3 top-1/2 -translate-y-1/2"
           />
           <select
+            ref={subRef}
             name="subject"
             value={form.subject}
             onChange={handleChange}
-            className={`${inputCls} appearance-none cursor-pointer pl-10`}
+            className={`${inputCls} ${
+              errors.subject ? "focus:border-red-400" : ""
+            } appearance-none cursor-pointer pl-9`}
           >
             <option value="">- Choose a topic -</option>
             {SUBJECTS.map((sub) => (
@@ -227,12 +253,13 @@ const ContactForm = () => {
             className="pointer-events-none absolute text-muted left-3 top-5.5 -translate-y-1/2"
           />
           <textarea
+            ref={msgRef}
             name="message"
             value={form.message}
             onChange={handleChange}
             placeholder="Tell me about your idea, project, or just say hello..."
             rows={6}
-            className={`${inputCls} resize-y min-h-32 pl-10`}
+            className={`${inputCls} ${errors.message ? "focus:border-red-400" : ""} resize-y min-h-32 pl-10`}
           />
         </div>
         <div className="flex justify-between">

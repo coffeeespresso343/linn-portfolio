@@ -1,4 +1,4 @@
-import Avatar from "../assets/avatar1.jpg";
+import Avatar from "../assets/avatar.jpg";
 
 export default function ProfileAvatar({ size = 200 }) {
   return (

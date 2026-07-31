@@ -78,7 +78,7 @@ const About = () => {
             <div className="card card-hover p-4 flex gap-4 items-center mb-4">
               <div
                 className="w-17 h-17 rounded-full overflow-hidden shrink-0 
-              border-2 border-white bg-surface2"
+              border-2 border-accent/28 bg-surface2"
               >
                 <ProfileAvatar size={68} />
               </div>

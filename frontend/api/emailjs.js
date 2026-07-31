@@ -14,17 +14,26 @@ const SUBJECT_LABELS = {
 };
 
 export async function sendContactEmails(formData) {
-  console.log("SEVICE ID: " + !!SERVICE_ID);
-  console.log("OWNER_TEMPLATE_ID: " + !!OWNER_TEMPLATE_ID);
-  console.log("VISITOR_TEMPLATE_ID: " + !!VISITOR_TEMPLATE_ID);
-  console.log("PUBLIC_KEY: " + !!PUBLIC_KEY);
+  // console.log("SEVICE ID: " + !!SERVICE_ID);
+  // console.log("OWNER_TEMPLATE_ID: " + !!OWNER_TEMPLATE_ID);
+  // console.log("VISITOR_TEMPLATE_ID: " + !!VISITOR_TEMPLATE_ID);
+  // console.log("PUBLIC_KEY: " + !!PUBLIC_KEY);
+
+  // const collabMessage = formData.wantCollab
+  //   ? `
+  //   <p style="background:#f0e8ff;padding:12px;border-radius:8px;color:#6b21a8">
+  //     I noticed you're interested in collaborating — exciting! I'll make sure
+  //     to address that in my reply.
+  // </p>
+  // `
+  //   : "";
 
   const templateParams = {
     from_name: formData.senderName,
     from_email: formData.senderEmail,
     subject_label: SUBJECT_LABELS[formData.subject] || formData.subject,
     message: formData.message,
-    want_collab: formData.wantCollab ? "Yes ✅" : "No",
+    want_collab: formData.want_collab ? "Yes" : "No",
   };
 
   const [ownerResult, visitorResult] = await Promise.allSettled([
