@@ -2,8 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
 const supabase = createClient(
-  "https://hmfcgjcdsoswkekvawst.supabase.co/rest/v1/",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZmNnamNkc29zd2tla3Zhd3N0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NTQzNjMzMSwiZXhwIjoyMTAxMDEyMzMxfQ.qu988C_aS3Kdzk2WGvlZ7ziCQ7-v4W2UcBQ6_6SoOqc", // service role — never the anon key
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY, // service role — never the anon key
 );
 const resend = new Resend(process.env.RESEND_API_KEY);
 
