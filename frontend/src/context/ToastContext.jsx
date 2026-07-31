@@ -41,7 +41,7 @@ export function ToastProvider({ children }) {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <div className="pointer-events-none flex justify-center fixed top-25 right-4 z-100  w-[calc(100%-2rem)] max-w-sm sm:top-27 sm:right-6 sm:w-full flex-col gap-3">
+      <div className="pointer-events-none flex justify-center fixed top-24 right-4 z-100  w-[calc(100%-2rem)] max-w-sm sm:top-27 sm:right-6 sm:w-full flex-col gap-3">
         <AnimatePresence>
           {toasts.map((toast) => {
             const Icon = ICONS[toast.type] || Info;
