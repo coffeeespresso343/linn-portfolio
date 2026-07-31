@@ -9,9 +9,12 @@ import Collab from "./sections/Collab";
 import Contact from "./sections/Contact";
 import { useToast } from "./context/ToastContext";
 import { useEffect } from "react";
+import useCursor from "./hooks/useCursor";
 
 function App() {
   const { showToast } = useToast();
+
+  useCursor();
 
   useEffect(() => {
     const hasEnteredSession = sessionStorage.getItem("hasEnteredSession");
@@ -51,6 +54,9 @@ function App() {
 
   return (
     <>
+      <div id="cursor" />
+      <div id="cursor-trail" />
+
       <div className="noise-overlay fixed inset-0 z-[999] pointer-events-none opacity-25" />
       <Navbar />
       <main>
