@@ -57,12 +57,11 @@ const Navbar = () => {
         {/* Logo */}
         <div>
           <a href="#hero" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-accent/20">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-accent/60">
               <img src={Logo} alt="Linn Logo" className="hover:rotate-12" />
             </div>
-            <span className="font-mono font-bold text-lg tracking-widest">
-              <span className="text-accent">[</span>LK
-              <span className="text-accent">]</span>
+            <span className="font-display font-bold text-lg bg-linear-to-r from-purple-500 to-accent bg-clip-text text-transparent">
+              Linn Khant
             </span>
           </a>
         </div>

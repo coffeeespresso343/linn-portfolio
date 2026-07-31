@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Clock3,
-  Code2,
   Coffee,
   Flame,
   GraduationCap,
@@ -107,7 +106,7 @@ const About = () => {
 
             {/* Ticker */}
             <div className="bg-surface border border-white/[0.07] rounded-xl p-4 overflow-hidden">
-              <p className="flex items-center gap-1.5 font-mono text-[0.66rem] text-dim tracking-[2px] mb-2">
+              <p className="flex items-center gap-1.5 font-mono text-[0.66rem] text-dim tracking-[2px] mb-3">
                 Currently learning
                 <ArrowRight size={14} />
               </p>

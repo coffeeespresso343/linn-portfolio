@@ -63,11 +63,13 @@ const Hero = () => {
             <MessageSquareCode size={16} />
             Let's Talk
           </a>
+
+          {/* Add CV Later */}
           <a
             onClick={() =>
               showToast("Sorry, This action cannot be work yet.", "info")
             }
-            href=""
+            href="#"
             className="btn-ghost flex items-center justify-center gap-1.5"
           >
             <FileDown size={16} /> Download CV
@@ -84,7 +86,7 @@ const Hero = () => {
       <div className="md:flex relative z-10 flex-col gap-5">
         <div className="relative flex justify-center">
           <div className="relative w-49 h-49">
-            <div className="absolute -inset-1.5 rounded-full border-2 border-dashed border-accent/28 animate-spin-slow" />
+            <div className="absolute -inset-1.5 rounded-full border-2 border-dashed border-accent/70 animate-spin-slow" />
             <div className="absolute -inset-0.5 rounded-full border border-accent/15" />
             <div
               className="w-49 h-49 rounded-full overflow-hidden relative z-10
@@ -93,11 +95,11 @@ const Hero = () => {
               <ProfileAvatar size={196} />
             </div>
             <div
-              className="absolute bottom-1.5 right-1 z-20 bg-bg border-2 border-emerald-400
-            rounded-full px-2.5 py-0.5 font-mono text-[0.65rem] text-emerald-400
+              className="absolute bottom-1.5 right-1 z-20 bg-surface/80 border-2 border-green-500
+            rounded-full px-2.5 py-0.5 font-mono text-[0.65rem] text-green
             flex items-center gap-1.5 whitespace-nowrap"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-blink" />
+              <span className="w-1.5 h-1.5 rounded-full bg-green animate-blink" />
               Open to collab
             </div>
           </div>
