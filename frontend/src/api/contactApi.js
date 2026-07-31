@@ -1,15 +1,19 @@
-export async function sendContactMessage(data) {
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+// src/api/contactApi.js
 
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.message || "Sever error");
+import { sendContactEmails } from "../../api/emailjs";
+import { saveToSupabase } from "../../api/supabase";
+
+export async function sendContactMessage(data) {
+  // 1. Send emails via EmailJS (runs in browser — no server needed)
+  await sendContactEmails(data);
+
+  // 2. Save to Supabase (optional but keeps your message history)
+  try {
+    await saveToSupabase(data);
+  } catch (err) {
+    // Don't fail the whole request if DB save fails
+    console.warn("Supabase save failed:", err.message);
   }
 
-  return json;
+  return { success: true, message: "Message sent!" };
 }

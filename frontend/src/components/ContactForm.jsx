@@ -74,29 +74,22 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const errs = validate(form);
-
     if (Object.values(errs).some(Boolean)) {
       setErrors(errs);
-      showToast("Please fix the highlighted fields.", "error");
+      showToast("Please fix highlighted fields", "error");
       return;
     }
 
     setStatus("sending");
-
     try {
       await sendContactMessage(form);
-
       setStatus("success");
-      showToast("Message sent!", "success");
-    } catch {
-      // Fallback to mailto
-      // const ml = `mailto:linnkhant343@gmail.com?subject=${encodeURIComponent("[Portfolio] " + form.subject)}&body=${encodeURIComponent(`From: ${form.senderName} <${form.senderEmail}>\n\n${form.message}`)}`;
-      // window.location.href = ml;
-      // setStatus("success");
+      showToast("Message sent! 🎉", "success");
+    } catch (err) {
+      console.error("Contact error:", err);
       setStatus("error");
-      showToast("Message failed to sent! Try again later.", "error");
+      showToast("Something went wrong. Please try again.", "error");
     }
   };
 
