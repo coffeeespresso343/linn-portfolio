@@ -5,6 +5,12 @@ const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY, // service role — never the anon key
 );
+console.log("SUPABASE_URL exists:", !!process.env.SUPABASE_URL);
+console.log(
+  "SUPABASE_SERVICE_ROLE_KEY exists:",
+  !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+);
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const OWNER_EMAIL = process.env.OWNER_EMAIL;
