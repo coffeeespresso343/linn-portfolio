@@ -2,13 +2,13 @@ export const testimonials = [
   {
     id: 1,
     name: "Prof. Daw Su Su Hlaing",
-    role: "Lecturer — OOP Module",
+    role: "Lecturer — Database Module",
     context: "RMIT",
     avatar: "SU",
     color: "text-cyan-500 ",
     quote:
-      "Best OOP final project in the class. The StudentHub Portal showed a clear understanding of software architecture — proper separation of concerns, clean entity design, and a working JWT auth flow that most professionals would be proud of.",
-    tags: ["Java", "OOP", "Spring Boot"],
+      "Best OOP final project in the class. The Nexora Movie Discovery App showed a clear understanding of software architecture — proper separation of concerns, clean entity design, and a working JWT auth flow that most professionals would be proud of.",
+    tags: ["Java", "OOP", "Database"],
     telegram: "https://t.me/linnkhant343",
   },
   {
@@ -17,7 +17,7 @@ export const testimonials = [
     role: "Teammate & Study Partner",
     context: "CodeRoom — Collab IDE Project",
     avatar: "HT",
-    color: "text-purple ",
+    color: "text-purple",
     quote:
       "Linn finished the entire WebSocket backend before I even set up my frontend dev environment. Incredibly fast and the code was clean — barely any bugs during integration.",
     tags: ["Spring Boot", "WebSocket", "Team Project"],
@@ -56,7 +56,7 @@ export const testimonials = [
     avatar: "May",
     color: "text-cyan-400",
     quote:
-      "Delivered exactly what I asked for — on time and without excuses. Explained every step clearly to someone who knows nothing about tech. The website works perfectly and looks professional. Would absolutely hire again.",
+      "Delivered exactly what I asked for — on time and without excuses. Explained every step clearly to someone who knows nothing about tech.",
     tags: ["Freelance", "Client Work", "Communication"],
     telegram: "https://t.me/linnkhant343",
   },

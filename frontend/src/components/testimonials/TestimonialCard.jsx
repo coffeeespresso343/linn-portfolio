@@ -20,13 +20,13 @@ const TestimonialCard = ({ testimonial, direction }) => {
   return (
     <div
       className={`
-      relative card p-8 flex flex-col gap-6
+      relative card p-6 flex flex-col gap-5
       border-purple/30 bg-linear-to-br from-surface to-purple/3
-      transition-all duration-500 ease-out
+      transition-all duration-500 ease-out shadow-[0_0_80px_rgba(124,48,255,0.1)]
       ${visible ? "translate-x-0 opacity-100" : slideIn}
     `}
     >
-      <div className="absolute top-0 left-6 right-6 h-0.5 rounded-full bg-linear-to-r from-purple via-accent to-purple" />
+      <div className="absolute top-0 left-4 right-4 h-0.5 rounded-full bg-linear-to-r from-purple via-accent to-purple" />
 
       <QuoteIcon className="w-8 h-8 text-purple absolute top-5 right-7" />
 
