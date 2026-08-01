@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
   { href: "#collab", label: "Collab" },
+  { href: "#testimonials", label: "Reviews" },
 ];
 
 const Navbar = () => {

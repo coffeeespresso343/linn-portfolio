@@ -10,6 +10,7 @@ import Contact from "./sections/Contact";
 import { useToast } from "./context/ToastContext";
 import { useEffect } from "react";
 import useCursor from "./hooks/useCursor";
+import Testimonials from "./sections/Testimonials";
 
 function App() {
   const { showToast } = useToast();
@@ -66,6 +67,7 @@ function App() {
         <Projects />
         <Education />
         <Collab />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
