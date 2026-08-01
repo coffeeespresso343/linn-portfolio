@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from "framer-motion";
+
 import { useEffect, useRef, useState } from "react";
 import FeatureCard from "../components/testimonials/FeatureCard";
 import TestimonialCard from "../components/testimonials/TestimonialCard";
@@ -9,20 +11,49 @@ const Testimonials = () => {
   const [autoPlay, setAutoPlay] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("left");
-  const [rendered, setRendered] = useState(true);
   const intervalRef = useRef(null);
   const total = testimonials.length;
 
   const featured = testimonials[0];
 
+  const cardVariants = {
+    enter: (direction) => ({
+      x: direction === "left" ? 60 : -60,
+      opacity: 0,
+      scale: 0.96,
+      rotate: direction === "left" ? 2 : -2,
+      filter: "blur(6px)",
+    }),
+
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+
+    exit: (direction) => ({
+      x: direction === "left" ? -60 : 60,
+      opacity: 0,
+      scale: 0.96,
+      rotate: direction === "left" ? -2 : 2,
+      filter: "blur(6px)",
+      transition: {
+        duration: 0.35,
+        ease: [0.4, 0, 1, 1],
+      },
+    }),
+  };
+
   const goTo = (nextIndex, direction) => {
     if (nextIndex === activeIndex) return;
     setDirection(direction);
-    setRendered(false);
-    setTimeout(() => {
-      setActiveIndex(nextIndex);
-      setRendered(true);
-    }, 180);
+    setActiveIndex(nextIndex);
   };
 
   const prev = () => {
@@ -42,13 +73,10 @@ const Testimonials = () => {
 
   useEffect(() => {
     if (!autoPlay) return;
+
     intervalRef.current = setInterval(() => {
       setDirection("left");
-      setRendered(false);
-      setTimeout(() => {
-        setActiveIndex((i) => (i + 1) % total);
-        setRendered(true);
-      }, 180);
+      setActiveIndex((i) => (i + 1) % total);
     }, 4500);
 
     return () => clearInterval(intervalRef.current);
@@ -107,18 +135,26 @@ const Testimonials = () => {
           {/* Card + nav*/}
           <FadeIn delay={80}>
             <div className="relative">
-              <div className="min-h-95">
-                {rendered && (
-                  <TestimonialCard
+              <div className="relative h-112 lg:h-100 overflow-hidden">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
                     key={activeIndex}
-                    testimonial={current}
-                    direction={direction}
-                  />
-                )}
+                    custom={direction}
+                    variants={cardVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                  >
+                    <TestimonialCard
+                      testimonial={current}
+                      direction={direction}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               {/* Prev + Next */}
-              <div className="flex items-center justify-between mt-8">
+              <div className="flex items-center justify-between mt-4">
                 {/* Prev */}
                 <button
                   onClick={prev}

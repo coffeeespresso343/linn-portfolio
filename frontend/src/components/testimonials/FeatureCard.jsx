@@ -6,11 +6,11 @@ import { siTelegram } from "simple-icons";
 const FeatureCard = ({ testimonial }) => {
   return (
     <div
-      className="relative card p-8 flex flex-col gap-6 h-full
+      className="relative card p-6 flex flex-col gap-6 h-full
                     border-purple/30 bg-linear-to-br from-surface to-purple/4
                     shadow-[0_0_80px_rgba(124,48,255,0.1)]"
     >
-      <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl bg-linear-to-r from-purple via-accent to-purple" />
+      <div className="absolute top-0 left-3 right-2 h-0.5 rounded-t-2xl bg-linear-to-r from-purple via-accent to-purple" />
 
       {/* Badge */}
       <div className="flex items-center justify-between">
@@ -20,7 +20,7 @@ const FeatureCard = ({ testimonial }) => {
         <Stars />
       </div>
 
-      <QuoteIcon className="h-14 w-14 text-purple" />
+      <QuoteIcon className="h-14 w-14 text-accent" />
 
       <blockquote className="text-[1.05rem] text-white/80 leading-[1.9] flex-1 italic font-light">
         "{testimonial.quote}"
