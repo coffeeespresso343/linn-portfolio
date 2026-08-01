@@ -14,7 +14,6 @@ const Testimonials = () => {
   const total = testimonials.length;
 
   const featured = testimonials[0];
-  const rest = testimonials.slice(1);
 
   const goTo = (nextIndex, direction) => {
     if (nextIndex === activeIndex) return;
@@ -50,7 +49,6 @@ const Testimonials = () => {
         setActiveIndex((i) => (i + 1) % total);
         setRendered(true);
       }, 180);
-      setActiveIndex((i) => (i + 1) % rest.length);
     }, 4500);
 
     return () => clearInterval(intervalRef.current);
@@ -124,8 +122,8 @@ const Testimonials = () => {
                 {/* Prev */}
                 <button
                   onClick={prev}
-                  className="group flex items-center gap-2 font-mono text-[0.78rem]
-                           text-muted hover:text-accent transition-all duration-200"
+                  className="group flex items-center gap-2 font-mono text-[0.78rem] 
+                           text-muted scale-90 hover:scale-100 hover:text-accent transition-all duration-200"
                 >
                   <span
                     className="w-9 h-9 rounded-full border border-white/[0.07]
@@ -164,7 +162,7 @@ const Testimonials = () => {
                 <button
                   onClick={next}
                   className="group flex items-center gap-2 font-mono text-[0.78rem]
-                text-muted hover:text-accent transition-all duration-200"
+                text-muted scale-90 hover:scale-100 hover:text-accent transition-all duration-200"
                 >
                   <span
                     className="w-9 h-9 rounded-full border border-white/[0.07]

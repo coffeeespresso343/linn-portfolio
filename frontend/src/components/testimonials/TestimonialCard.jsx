@@ -53,7 +53,7 @@ const TestimonialCard = ({ testimonial, direction }) => {
 
       {/* Author */}
       <div className="flex items-center gap-3">
-        <Avatar initials={testimonial.avatar} color={testimonial.color} />
+        <Avatar color={testimonial.color} />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <p className="font-display font-bold text-[0.95rem] text-white truncate">
