@@ -60,7 +60,7 @@ const Navbar = () => {
             <div className="w-8 h-8 rounded-full overflow-hidden border border-accent/60">
               <img src={Logo} alt="Linn Logo" className="hover:rotate-12" />
             </div>
-            <span className="font-display font-bold text-lg bg-linear-to-r from-purple-500 to-accent bg-clip-text text-transparent">
+            <span className="font-display font-bold text-lg bg-linear-to-r from-purple to-accent bg-clip-text text-transparent">
               Linn Khant
             </span>
           </a>

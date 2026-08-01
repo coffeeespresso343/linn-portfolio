@@ -5,6 +5,7 @@ import { saveToSupabase } from "../../api/supabase";
 
 export async function sendContactMessage(data) {
   // 1. Send emails via EmailJS (runs in browser — no server needed)
+  // console.log("Sending contact message:", data);
   await sendContactEmails(data);
 
   // 2. Save to Supabase (optional but keeps your message history)
