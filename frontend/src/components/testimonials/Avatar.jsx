@@ -1,4 +1,6 @@
-const Avatar = ({ initials, color, size = "md" }) => {
+import { UserCircleIcon } from "lucide-react";
+
+const Avatar = ({ color, size = "md" }) => {
   const sizes = {
     sm: "w-9 h-9 text-sm",
     md: "w-12 h-12 text-base",
@@ -6,11 +8,12 @@ const Avatar = ({ initials, color, size = "md" }) => {
   };
   return (
     <div
-      className={`${sizes[size]} rounded-full bg-linear-to-br ${color}
-                     flex items-center justify-center font-display font-bold
-                     text-white shrink-0 shadow-lg`}
+      className={`${sizes[size]} rounded-full ${color}
+                     flex items-center justify-center 
+                     shrink-0 shadow-lg`}
     >
-      {initials}
+      <UserCircleIcon strokeWidth={1.5} className="h-full w-full" />
+      {/* {initials} */}
     </div>
   );
 };

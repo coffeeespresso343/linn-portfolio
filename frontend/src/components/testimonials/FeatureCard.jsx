@@ -42,11 +42,7 @@ const FeatureCard = ({ testimonial }) => {
 
       {/* Author */}
       <div className="flex items-center gap-4">
-        <Avatar
-          initials={testimonial.avatar}
-          color={testimonial.color}
-          size="lg"
-        />
+        <Avatar color={testimonial.color} size="lg" />
         <div>
           <div className="flex items-center gap-2 mb-0.5">
             <p className="font-display font-bold text-[1.05rem] text-white">
