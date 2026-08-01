@@ -2,22 +2,33 @@ import { QuoteIcon } from "lucide-react";
 import Stars from "./Stars";
 import Avatar from "./Avatar";
 import { siTelegram } from "simple-icons";
+import { useEffect, useState } from "react";
 
-const TestimonialCard = ({ testimonial, isActive }) => {
+const TestimonialCard = ({ testimonial, direction }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setVisible(true), 30);
+    return () => clearTimeout(timeout);
+  }, [testimonial.id]);
+
+  const slideIn =
+    direction === "left"
+      ? "translate-x-8 opacity-0"
+      : "-translate-x-8 opacity-0";
+
   return (
     <div
-      className={`relative card p-7 flex flex-col gap-5 h-full transition-all duration-500
-    ${
-      isActive
-        ? "border-purple/35 shadow-[0_0_60px_rgba(124,48,255,0.1)] scale-[1.01]"
-        : "opacity-80 hover:opacity-100"
-    }`}
+      className={`
+      relative card p-8 flex flex-col gap-6
+      border-purple/30 bg-linear-to-br from-surface to-purple/3
+      transition-all duration-500 ease-out
+      ${visible ? "translate-x-0 opacity-100" : slideIn}
+    `}
     >
-      {isActive && (
-        <div className="absolute top-0 left-6 right-6 h-0.5 rounded-full bg-linear-to-r from-purple via-accent to-purple" />
-      )}
+      <div className="absolute top-0 left-6 right-6 h-0.5 rounded-full bg-linear-to-r from-purple via-accent to-purple" />
 
-      <QuoteIcon className="w-8 h-8 text-purple absolute top-5 right-6" />
+      <QuoteIcon className="w-8 h-8 text-purple absolute top-5 right-7" />
 
       <Stars count={5} />
 
