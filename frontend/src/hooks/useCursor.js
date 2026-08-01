@@ -2,15 +2,15 @@ import { useEffect } from "react";
 
 const useCursor = () => {
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      return;
+    }
     const cursor = document.getElementById("cursor");
     const trail = document.getElementById("cursor-trail");
 
     if (!cursor || !trail) return;
 
     // Disable custom cursor on touch devices
-    if (window.matchMedia("(pointer: coarse)").matches) {
-      return;
-    }
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
