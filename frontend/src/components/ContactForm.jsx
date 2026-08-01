@@ -43,7 +43,7 @@ function validate(data) {
   const errs = { ...INITIAL_ERRORS };
   if (!data.senderName.trim()) errs.senderName = "Please enter your name";
   if (!data.senderEmail.trim())
-    errs.senderEmail = "Please enter your email address";
+    errs.senderEmail = "Please enter your real email address";
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.senderEmail))
     errs.senderEmail = "Please enter a valid email";
   if (!data.subject) errs.subject = "Please choose a topic";
@@ -87,8 +87,14 @@ const ContactForm = () => {
       setErrors(errs);
 
       if (errs.senderName) nameRef.current?.focus();
-      else if (errs.senderEmail) emailRef.current?.focus();
-      else if (errs.subject) subRef.current?.focus();
+      else if (errs.senderEmail) {
+        emailRef.current?.focus();
+        showToast(
+          "Please enter a real email address to receive a reply.",
+          "info",
+        );
+        return;
+      } else if (errs.subject) subRef.current?.focus();
       else msgRef.current?.focus();
 
       showToast("Please fix the highlighted fields.", "error");
@@ -148,7 +154,7 @@ const ContactForm = () => {
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
           <label
-            htmlFor=""
+            htmlFor="senderName"
             className="font-mono text-[0.72rem] text-muted tracking-wide"
           >
             Your Name *
@@ -165,6 +171,7 @@ const ContactForm = () => {
               value={form.senderName}
               onChange={handleChange}
               placeholder="Enter your name"
+              required
               className={`${inputCls} pl-9 ${
                 errors.senderName ? "focus:border-red-400" : ""
               }`}
@@ -178,10 +185,13 @@ const ContactForm = () => {
         </div>
         <div className="flex flex-col gap-1.5">
           <label
-            htmlFor=""
+            htmlFor="senderEmail"
             className="font-mono text-[0.72rem] text-muted tracking-wide"
           >
-            Your Email *
+            Your Email *{" "}
+            <span className="text-[10px] text-muted/79">
+              (Real email address)
+            </span>
           </label>
           <div className="relative">
             <Mail
@@ -195,6 +205,7 @@ const ContactForm = () => {
               value={form.senderEmail}
               onChange={handleChange}
               placeholder="you@gmail.com"
+              required
               className={`${inputCls} pl-9 ${
                 errors.senderEmail ? "focus:border-red-400" : ""
               }`}
@@ -211,7 +222,7 @@ const ContactForm = () => {
       {/* Subject */}
       <div className="flex flex-col gap-1.5">
         <label
-          htmlFor=""
+          htmlFor="subject"
           className="font-mono text-[0.72rem] text-muted tracking-wide"
         >
           Subject *
@@ -248,7 +259,7 @@ const ContactForm = () => {
       {/* Message */}
       <div className="flex flex-col gap-1.5">
         <label
-          htmlFor=""
+          htmlFor="message"
           className="font-mono text-[0.72rem] text-muted tracking-wide"
         >
           Message *
@@ -264,6 +275,7 @@ const ContactForm = () => {
             value={form.message}
             onChange={handleChange}
             placeholder="Tell me about your idea, project, or just say hello..."
+            required
             rows={6}
             className={`${inputCls} ${errors.message ? "focus:border-red-400" : ""} resize-y min-h-32 pl-10`}
           />

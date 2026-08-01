@@ -14,7 +14,7 @@ const SUBJECT_LABELS = {
 };
 
 export async function sendContactEmails(formData) {
-  const collab_message = formData.want_collab
+  const collab_message = formData.wantCollab
     ? "I noticed you're interested in collaborating — exciting! I'll make sure to address that in my reply."
     : "I've safely received your message and will get back to you as soon as possible.";
 
@@ -23,9 +23,11 @@ export async function sendContactEmails(formData) {
     from_email: formData.senderEmail,
     subject_label: SUBJECT_LABELS[formData.subject] || formData.subject,
     message: formData.message,
-    want_collab: formData.want_collab ? "Yes" : "No",
+    want_collab: formData.wantCollab ? "Yes" : "No",
     collab_message: collab_message,
   };
+
+  // console.log("Sending emails with params:", templateParams);
 
   const [ownerResult, visitorResult] = await Promise.allSettled([
     emailjs.send(SERVICE_ID, OWNER_TEMPLATE_ID, templateParams, PUBLIC_KEY),
