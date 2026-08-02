@@ -13,7 +13,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-28 bg-bg">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
         <div className="section-label">// 03 - Projects</div>
         <h2 className="section-title">
           Things I've <em className="text-accent">Built</em>

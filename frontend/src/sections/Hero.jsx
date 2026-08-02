@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen grid md:grid-cols-2 items-center gap-16 px-10 md:px-14 pt-32 pb-20 overflow-hidden"
+      className="relative min-h-screen grid md:grid-cols-2 items-center gap-16 px-6 md:px-12 pt-32 pb-20 overflow-hidden"
     >
       <div className="absolute inset-0 z-0 grid-bg pointer-events-none" />
       <div
