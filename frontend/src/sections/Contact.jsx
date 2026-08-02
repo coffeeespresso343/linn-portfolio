@@ -31,9 +31,9 @@ const SOCIAL_LINKS = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-28 bg-bg2">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
-        <div className="section-label">// 06 - Contact</div>
+    <section id="contact" className="py-28 bg-bg">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
+        <div className="section-label">// 07 - Contact</div>
         <h2 className="section-title">
           Send Me a <em className="text-accent">Message</em>
         </h2>

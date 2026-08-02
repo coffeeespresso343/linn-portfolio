@@ -37,7 +37,7 @@ const INFO = [
 const About = () => {
   return (
     <section id="about" className="py-28 bg-bg">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
         <div className="section-label">// 01 - About</div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">

@@ -55,7 +55,7 @@ const Collab = () => {
 
   return (
     <section id="collab" className="py-28 bg-bg">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
         <div className="section-label">// 05 - Collaborate</div>
         <h2 className="section-title">
           Let's Build <em className="text-accent">Together</em>

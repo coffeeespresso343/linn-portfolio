@@ -58,7 +58,7 @@ const TimelineItem = ({ item }) => {
 const Education = () => {
   return (
     <section id="education" className="py-28 bg-bg2">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
         <div className="section-label">// 04 - Educations</div>
         <h2 className="section-title">
           My <em className="text-accent">Journey</em>

@@ -55,7 +55,7 @@ const LearningItem = ({ Icon, label, sub, pct, done }) => {
 const Skills = () => {
   return (
     <section id="skills" className="py-28 bg-bg2">
-      <div className="max-w-[1180px] mx-auto px-10 md:px-14">
+      <div className="max-w-296 mx-auto px-6 md:px-12">
         <div className="section-label">// 02 - Skills</div>
         <h2 className="section-title">
           Tech <em className="text-accent">Arsenal</em>

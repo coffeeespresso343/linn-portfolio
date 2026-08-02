@@ -5,7 +5,13 @@ import FeatureCard from "../components/testimonials/FeatureCard";
 import TestimonialCard from "../components/testimonials/TestimonialCard";
 import FadeIn from "../components/ui/FadeIn";
 import { testimonials } from "../data/testimonials";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  MessageCircleMore,
+  Pause,
+  Play,
+} from "lucide-react";
 
 const Testimonials = () => {
   const [autoPlay, setAutoPlay] = useState(true);
@@ -86,17 +92,17 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-28 bg-bg2">
-      <div className="max-w-295 mx-auto px-10 md:px-14">
+      <div className="max-w-295 mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="section-label">// 06 - Testimonials</div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
             <h2 className="section-title mb-0">
-              What People <em className="text-accent">Say About Me</em>
+              What People <em className="text-accent">Say Me</em>
             </h2>
 
             <div className="flex items-center gap-6 pb-1 shrink-0">
               <div className="text-center">
-                <p className="font-display font-extrabold text-2xl text-accent leading-none">
+                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
                   {testimonials.length}
                 </p>
                 <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
@@ -105,7 +111,7 @@ const Testimonials = () => {
               </div>
               <div className="w-px h-8 bg-white/[0.07]" />
               <div className="text-center">
-                <p className="font-display font-extrabold text-2xl text-accent leading-none">
+                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
                   5.0
                 </p>
                 <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
@@ -116,7 +122,7 @@ const Testimonials = () => {
               <div className="w-px h-8 bg-white/[0.07]" />
 
               <div className="text-center">
-                <p className="font-display font-extrabold text-2xl text-accent leading-none">
+                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
                   100%
                 </p>
                 <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
@@ -218,7 +224,18 @@ const Testimonials = () => {
                   className="group flex items-center justify-center w-16 h-9 rounded-full border border-white/[0.07]
                    text-dim scale-95 hover:text-accent hover:border-accent/40 hover:scale-100  transition-all duration-200"
                 >
-                  {autoPlay ? <Pause /> : <Play />}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                      key={autoPlay ? "play" : "pause"}
+                      initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                      animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                      exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-center justify-center"
+                    >
+                      {autoPlay ? <Pause /> : <Play />}
+                    </motion.div>
+                  </AnimatePresence>
                 </button>
               </div>
             </div>
@@ -234,7 +251,8 @@ const Testimonials = () => {
           >
             <div>
               <h3 className="font-display font-bold text-[1.05rem] mb-1">
-                Worked with me? Leave a review!
+                Worked with me?{" "}
+                <span className="text-accent">Leave a review!</span>
               </h3>
               <p className="text-muted text-[0.85rem]">
                 If we've collaborated, studied, or built something together, I'd
@@ -243,9 +261,9 @@ const Testimonials = () => {
             </div>
             <a
               href="#contact"
-              className="btn-primary whitespace-nowrap shrink-0"
+              className="flex items-center  gap-2 btn-primary whitespace-nowrap shrink-0"
             >
-              Leave a Review
+              Leave a Review <MessageCircleMore size={16} />
             </a>
           </div>
         </FadeIn>

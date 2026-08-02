@@ -51,7 +51,7 @@ const Navbar = () => {
       <nav
         className={`
       fixed top-0 left-0 right-0 z-900 flex items-center justify-between
-      px-8 py-4 transition-all duration-300
+      px-6 py-4 transition-all duration-300
       ${isScrolled ? "bg-bg/10 border-b border-white/[0.07] backdrop-blur-2xl" : "bg-bg/75 backdrop-blur-2xl"}
     `}
       >
@@ -61,7 +61,7 @@ const Navbar = () => {
             <div className="w-8 h-8 rounded-full overflow-hidden border border-accent/60">
               <img src={Logo} alt="Linn Logo" className="hover:rotate-12" />
             </div>
-            <span className="font-display font-bold text-lg bg-linear-to-r from-purple to-accent bg-clip-text text-transparent">
+            <span className="md:hidden lg:flex font-display font-bold text-lg bg-linear-to-r from-purple to-accent bg-clip-text text-transparent">
               Linn Khant
             </span>
           </a>
@@ -96,7 +96,7 @@ const Navbar = () => {
         {/* Hamburger */}
         <button
           aria-label="Toggle menu"
-          className="md:hidden text-white transition-colors hover:bg-white/5"
+          className="md:hidden text-white transition-colors hover:text-white/70"
           onClick={() => setIsMenuOpen((o) => !o)}
         >
           <AnimatePresence mode="wait" initial={false}>
