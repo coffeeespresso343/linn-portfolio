@@ -1,6 +1,12 @@
 import FadeIn from "../components/ui/FadeIn";
 import ContactForm from "../components/ContactForm";
-import { siFacebook, siGithub, siGmail, siTelegram } from "simple-icons";
+import {
+  siFacebook,
+  siGithub,
+  siGmail,
+  siInstagram,
+  siTelegram,
+} from "simple-icons";
 
 const SOCIAL_LINKS = [
   {
@@ -10,10 +16,10 @@ const SOCIAL_LINKS = [
     icon: siGmail,
   },
   {
-    label: "GitHub",
-    value: "@coffeeespresso343",
-    href: "https://github.com/coffeeespresso343",
-    icon: siGithub,
+    label: "Instagram",
+    value: "@lynnmrattswe",
+    href: "https://www.instagram.com/lynnmrattswe",
+    icon: siInstagram,
   },
   {
     label: "Facebook",
@@ -26,6 +32,12 @@ const SOCIAL_LINKS = [
     value: "@linnkhant343",
     href: "https://t.me/linnkhant343",
     icon: siTelegram,
+  },
+  {
+    label: "GitHub",
+    value: "@coffeeespresso343",
+    href: "https://github.com/coffeeespresso343",
+    icon: siGithub,
   },
 ];
 

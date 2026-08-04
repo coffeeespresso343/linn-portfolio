@@ -456,7 +456,7 @@ Deploy
 **Linn — IT Student & Full-Stack Developer**
 
 [![GitHub](https://img.shields.io/badge/GitHub-coffeeespresso343-181717?style=flat-square&logo=github)](https://github.com/coffeeespresso343)
-[![Email](https://img.shields.io/badge/Email-coffeeespresso304%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:coffeeespresso304@gmail.com)
+[![Email](https://img.shields.io/badge/Email-linnkhant343%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:linnkhant343@gmail.com)
 
 ---
 
