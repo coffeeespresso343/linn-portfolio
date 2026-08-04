@@ -135,9 +135,9 @@ const ContactForm = () => {
         <p className="text-muted mb-6 text-center">
           Thanks for reaching out! I'll reply within 24 hours.
         </p>
-        <p className="text-muted border border-white/[0.07] p-2 rounded-xl font-mono mb-6 text-xs text-center">
+        <p className="text-white/50 border border-white/[0.07] p-2 rounded-xl font-mono mb-6 text-[10px] text-center">
           Check auto-reply message at your Gmail App. <br />
-          <span className="">If not found, find it at span mail.</span>
+          <span className="">If not found, find it at spam mail.</span>
           <br />
           Thank You {form.senderName}!
         </p>
