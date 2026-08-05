@@ -26,8 +26,6 @@ const TestimonialCard = ({ testimonial, direction }) => {
       ${visible ? "translate-x-0 opacity-100" : slideIn}
     `}
     >
-      <div className="absolute top-0 left-4 right-4 h-0.5 rounded-full bg-linear-to-r from-purple via-accent to-purple" />
-
       <QuoteIcon className="w-8 h-8 text-purple absolute top-5 right-7" />
 
       <Stars count={5} />
