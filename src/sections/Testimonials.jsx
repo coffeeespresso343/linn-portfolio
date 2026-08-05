@@ -12,6 +12,7 @@ import {
   Pause,
   Play,
 } from "lucide-react";
+import { FaqCounter } from "../components/StatCounter";
 
 const Testimonials = () => {
   const [autoPlay, setAutoPlay] = useState(true);
@@ -100,35 +101,8 @@ const Testimonials = () => {
               What People <em className="text-accent">Say Me</em>
             </h2>
 
-            <div className="flex items-center gap-6 pb-1 shrink-0">
-              <div className="text-center">
-                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
-                  {testimonials.length}
-                </p>
-                <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
-                  REVIEWS
-                </p>
-              </div>
-              <div className="w-px h-8 bg-white/[0.07]" />
-              <div className="text-center">
-                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
-                  5.0
-                </p>
-                <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
-                  AVG RATING
-                </p>
-              </div>
-
-              <div className="w-px h-8 bg-white/[0.07]" />
-
-              <div className="text-center">
-                <p className="font-mono font-extrabold text-2xl text-accent leading-none">
-                  100%
-                </p>
-                <p className="font-mono text-[0.65rem] text-muted tracking-widest mt-1">
-                  RECOMMEND
-                </p>
-              </div>
+            <div>
+              <FaqCounter />
             </div>
           </div>
         </FadeIn>
@@ -141,6 +115,18 @@ const Testimonials = () => {
           {/* Card + nav*/}
           <FadeIn delay={80}>
             <div className="relative">
+              <div className="absolute pr-4 pl-4 top-0 z-10 h-0.5 w-full overflow-hidden rounded-full mb-3">
+                <motion.div
+                  key={`${activeIndex}-${autoPlay}`}
+                  className="h-full rounded-full bg-linear-to-r from-purple via-accent to-purple"
+                  initial={{ width: "0%" }}
+                  animate={{ width: autoPlay ? "100%" : "0%" }}
+                  transition={{
+                    duration: 4.5,
+                    ease: "linear",
+                  }}
+                />
+              </div>
               <div className="relative h-112 lg:h-100 overflow-hidden">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
@@ -250,7 +236,7 @@ const Testimonials = () => {
           flex flex-col sm:flex-row items-center justify-between gap-5"
           >
             <div>
-              <h3 className="font-display font-bold text-[1.05rem] mb-1">
+              <h3 className="flex gap-2 font-display font-bold text-[1.05rem] mb-1">
                 Worked with me?{" "}
                 <span className="text-accent">Leave a review!</span>
               </h3>

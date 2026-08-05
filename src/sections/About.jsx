@@ -110,16 +110,18 @@ const About = () => {
                 Currently learning
                 <ArrowRight size={14} />
               </p>
-              <div className="flex gap-4 animate-ticker whitespace-nowrap">
-                {TICKER.map((t, i) => (
-                  <span
-                    key={i}
-                    className="font-mono text-[0.75rem] text-accent px-3 py-1
+              <div className="overflow-hidden">
+                <div className="flex gap-4 w-max animate-ticker whitespace-nowrap">
+                  {TICKER.map((t, i) => (
+                    <span
+                      key={i}
+                      className="font-mono text-[0.75rem] text-accent px-3 py-1
                   bg-accent/[0.07] rounded-full whitespace-nowrap"
-                  >
-                    {t}
-                  </span>
-                ))}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </FadeIn>
