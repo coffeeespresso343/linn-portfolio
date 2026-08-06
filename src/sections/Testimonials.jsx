@@ -236,7 +236,7 @@ const Testimonials = () => {
           flex flex-col sm:flex-row items-center justify-between gap-5"
           >
             <div>
-              <h3 className="flex gap-2 font-display font-bold text-[1.05rem] mb-1">
+              <h3 className="font-display font-bold text-[1.05rem] mb-1">
                 Worked with me?{" "}
                 <span className="text-accent">Leave a review!</span>
               </h3>
