@@ -414,8 +414,8 @@ chore:     config, dependencies, tooling
 
 ```
 Content
-  ☐ Real name replaced everywhere (search: "Alex Reyes", "Linn")
-  ☐ Real email updated (search: "alex.reyes@email.com")
+  ☐ Real name replaced everywhere (search: "Linn Khant", "Your Name")
+  ☐ Real email updated (search: "l.reyes@email.com")
   ☐ Real GitHub, LinkedIn, Telegram links updated
   ☐ Real university and education details updated
   ☐ Real projects with working GitHub/demo links
